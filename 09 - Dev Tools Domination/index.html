@@ -18,26 +18,55 @@
     }
 
     // Regular
+    console.log('hello');
 
     // Interpolated
+    console.log('Hello I am a %s string', 'hello');
 
     // Styled
+    console.log('%cI am some great text', 'font-size: 50px');
 
     // warning!
+    console.warn('OH NOOOO');
 
     // Error :|
+    console.error('ERROR!')
 
     // Info
+    console.info('Crocodiles eat 3-4 people per year')
 
     // Testing
+    // console.assert(1 === 1, 'That is wrong!')
+    // console.assert(1 === 2, 'That is wrong!') // will only assert if the first argument passed in is falsey
+
+    const p = document.querySelector('p');
+    console.assert(p.classList.contains('ouch'), 'That is wrong!');
 
     // clearing
+    console.clear();
 
     // Viewing DOM Elements
+    console.log(p); // shows element
+    console.dir(p); // displays dropdown and lists methods available for that element
 
     // Grouping together
+    dogs.forEach(dog => {
+      // console.group(`${dog.name}`)
+      console.groupCollapsed(`${dog.name}`)
+      console.log(`This is ${dog.name}`);
+      console.log(`${dog.name} is ${dog.age} years old`);
+      console.log(`${dog.name} is ${dog.age * 7} dog years old`);
+      console.groupEnd(`${dog.name}`)
+    });
 
     // counting
+    console.count('Wes');
+    console.count('Wes');
+    console.count('Wes');
+    console.count('Wes');
+    console.count('Wes');
+    console.count('Wes');
+    console.count('Wes');
 
     // timing
 
