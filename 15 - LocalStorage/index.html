@@ -30,9 +30,35 @@
   const itemsList = document.querySelector('.plates');
   const items = [];
 
+function addItem(e) {
+  // console.log('hello');
+  e.preventDefault(); // stops page from reloading
+  const text = (this.querySelector('[name=item]')).value; // 'this' is the form
+  const item = {
+    text,
+    done: false
+  };
+  // console.log(item);
+  items.push(item);
+  populateList(items, itemsList);
+  this.reset();
+}
+
+function populateList(plates = [], platesList) {
+  platesList.innerHTML = plates.map((plate, i) => {
+    return `
+    <li>
+      <input type="checkbox" data-index=${i} id="item${i}" ${plate.done ? 'checked' : ''}/>
+      <label for="item${i}">${plate.text}</label>
+    </li>`;
+  }).join('');
+}
+
+
+addItems.addEventListener('submit', addItem);
+
 </script>
 
 
 </body>
 </html>
-
