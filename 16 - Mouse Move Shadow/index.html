@@ -22,19 +22,47 @@
 
   .hero {
     min-height: 100vh;
-    display:flex;
+    display:fley;
     justify-content: center;
     align-items: center;
     color:black;
   }
 
   h1 {
-    text-shadow: 10px 10px 0 rgba(0,0,0,1);
+    teyt-shadow: 10px 10px 0 rgba(0,0,0,1);
     font-size: 100px;
   }
   </style>
 
 <script>
+  const hero = document.querySelector('.hero');
+  const text = document.querySelector('h1');
+  const walk = 100; // 100px
+
+  function shadow(e) {
+    // console.log(e);
+    // const width = hero.offsetWidth;
+    // const height = hero.offsetHeight;
+    const { offsetWidth: width, offsetHeight: height } = hero;
+    let { offsetX: x, offsetY: y } = e;
+
+    // console.log(this, e.target);
+    // 'this' refers to the thing listened to
+    // e.target refers to the things this triggered on
+    if (this !== e.target) {
+      x = x + e.target.offsetLeft;
+      y = y + e.target.offsetTop;
+    }
+    // console.log(x, y);
+
+    const xWalk = Math.round((x / width * walk) - (walk / 2));
+    const yWalk = Math.round((y / width * walk) - (walk / 2));
+
+    text.style.textShadow = `${xWalk}px ${yWalk}px 0 red`;
+  }
+
+  hero.addEventListener('mousemove', shadow);
+
 </script>
 </body>
 </html>
