@@ -3,12 +3,14 @@
 <head>
   <meta charset="UTF-8">
   <title>Key Detection</title>
-  <script type="text/javascript" src="http://www.cornify.com/js/cornify.js"></script>
+  <!-- <script type="text/javascript" src="http://www.cornify.com/js/cornify.js"></script> -->
+  <script type="text/javascript" src="https://www.iamcal.com/sharkify/sharkify.js"></script>
 </head>
 <body>
+
 <script>
 const pressed = [];
-const secretCode = 'burrito';
+const secretCode = ' ';
 
 window.addEventListener('keyup', (e) => {
   // console.log(e.key);
@@ -17,7 +19,8 @@ window.addEventListener('keyup', (e) => {
   console.log(pressed);
   if (pressed.join('').includes(secretCode)) {
     // console.log('DING DING');
-    cornify_add();
+    // cornify_add();
+    sharkify_add();
   }
 })
 </script>
